@@ -1,6 +1,5 @@
 package com.example.littleloomlocator;
 
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Optional;
@@ -20,13 +19,15 @@ public class Group1LittleLoomLocatorApplication {
 	}
 
 	@Bean
-	ApplicationRunner init(ParentRepository parentRepository, ChildRepository childRepository, InstituteRepository instituteRepo, UserRepository userRepository) {
+
+	ApplicationRunner init(ParentRepository parentRepository, ChildRepository childRepository, InstituteRepository instituteRepo, UserRepository userRepository, NotificationRepository notificationRepository) {
+
 		return args -> {
-			loadData(parentRepository, childRepository, instituteRepo, userRepository);
+			loadData(parentRepository, childRepository, instituteRepo, userRepository, notificationRepository);
 		};
 	}
-	
-	private void loadData(ParentRepository parentRepository, ChildRepository childRepository, InstituteRepository instituteRepo, UserRepository userRepository) {
+
+	private void loadData(ParentRepository parentRepository, ChildRepository childRepository, InstituteRepository instituteRepo, UserRepository userRepository, NotificationRepository notificationRepository) {
 		ArrayList<Parent> parents = new ArrayList<>();
 		parents.add(new Parent("Sujeewa", "Fernando","Sapperton", "6726678180", "sujeewau@hotmail.com", "Sujeewa", "6726678180"));
 		parents.add(new Parent("Namesh", "Chathura","New westminster", "2369963996", "nameshm89@gmail.com", "Namesh", "2369963996"));
@@ -46,12 +47,12 @@ public class Group1LittleLoomLocatorApplication {
 		/*
 		 * Optional<Course> course = courseRepository.findByIdEagerly(1L);
 		 * System.out.println(course.get().getSections());
-		 */ 
+		 */
 
 		ArrayList<Child> children = new ArrayList<>();
 		children.add(new Child("Child1 FN", "Child 1 LN",'F',LocalDate.of(2020, 2, 16), "No"));
 		children.add(new Child("Child2 FN", "Child 2 LN",'F',LocalDate.of(2015, 6, 20), "No"));
-
+		// childRepository.saveAll(children);
 		childRepository.saveAll(children);
 		
 /*
@@ -60,16 +61,18 @@ public class Group1LittleLoomLocatorApplication {
 		Registration reg = new Registration(st, sec);
 		regRepository.save(reg);
 
-		sec = (Section) (courses.get(0).getSections()).toArray()[1];
-		st = students.get(0);
-		reg = new Registration(st, sec);
-		regRepository.save(reg);
+		/*
+		 * Section sec = (Section) (courses.get(0).getSections()).toArray()[0]; Student
+		 * st = students.get(0); Registration reg = new Registration(st, sec);
+		 * regRepository.save(reg);
+		 * 
+		 * sec = (Section) (courses.get(0).getSections()).toArray()[1]; st =
+		 * students.get(0); reg = new Registration(st, sec); regRepository.save(reg);
+		 * 
+		 * sec = (Section) (courses.get(0).getSections()).toArray()[0]; st =
+		 * students.get(1); reg = new Registration(st, sec); regRepository.save(reg);
+		 */
 
-		sec = (Section) (courses.get(0).getSections()).toArray()[0];
-		st = students.get(1);
-		reg = new Registration(st, sec);
-		regRepository.save(reg);*/
-		
 		// Adding Institutes
 		
 		instituteRepo.save(new Institute("Riverside Childcare NW", "140-1110", "Ewen Ave", "New Westminster", "BC",
@@ -90,5 +93,10 @@ public class Group1LittleLoomLocatorApplication {
 		users.add(new User("parent", "parent", "PARENT"));
 		users.add(new User("institute", "institute", "INSTITUTE"));
 		userRepository.saveAll(users);
+
+		// Adding Notifications
+		notificationRepository.save(new Notification(3, "Sing & Smile Child Care", 1, "Sujeewa", "Your application is accepted.", false));
+		notificationRepository.save(new Notification(2, "Nana Licensed Daycare", 2, "Namesh", "Your application is still in waitlist. We will share an update once you receive a seat.", false));
+		notificationRepository.save(new Notification(3, "Riverside Childcare NW", 1, "Sujeewa", "We are in the process of accomodating seats for the requested children.", false));	
 	}
 }
