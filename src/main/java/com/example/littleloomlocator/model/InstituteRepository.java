@@ -8,7 +8,6 @@ public interface InstituteRepository extends JpaRepository<Institute, Long> {
 	
 	List<Institute> findByNameContainingIgnoreCase(String name);
 	List<Institute> findByCityContainingIgnoreCase(String city);
-	
 	List<Institute> findByNameContainingIgnoreCaseAndCityContainingIgnoreCase(String name, String city);
 	
 }
