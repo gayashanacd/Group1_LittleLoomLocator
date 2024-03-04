@@ -32,15 +32,10 @@ public class Group1LittleLoomLocatorApplication {
 		parents.add(new Parent("Namesh", "Chathura","New westminster", "2369963996", "nameshm89@gmail.com", "Namesh", "2369963996"));
 		parents.add(new Parent("Indika", "Gayashan","New westminster", "7788825994", "gayazhanmit@yahoo.com", "Indika", "7788825994"));
 		
-/*
-		courses.get(0).addSection(new Section(1));
-		courses.get(0).addSection(new Section(2));
-		courses.get(1).addSection(new Section(1));
-		courses.get(1).addSection(new Section(2));
-		courses.get(1).addSection(new Section(3));
-		courses.get(1).addSection(new Section(4));
-		courses.get(2).addSection(new Section(1));
-*/
+
+		parents.get(0).addChild(new Child("Child1 FN", "Child 1 LN",'F',LocalDate.of(2020, 2, 16), "No"));
+		parents.get(1).addChild(new Child("Child2 FN", "Child 2 LN",'F',LocalDate.of(2015, 6, 20), "No"));
+
 		parentRepository.saveAll(parents);
 
 		/*
@@ -48,11 +43,14 @@ public class Group1LittleLoomLocatorApplication {
 		 * System.out.println(course.get().getSections());
 		 */ 
 
-		ArrayList<Child> children = new ArrayList<>();
-		children.add(new Child("Child1 FN", "Child 1 LN",'F',LocalDate.of(2020, 2, 16), "No"));
-		children.add(new Child("Child2 FN", "Child 2 LN",'F',LocalDate.of(2015, 6, 20), "No"));
-
-		childRepository.saveAll(children);
+		/*
+		 * ArrayList<Child> children = new ArrayList<>(); children.add(new
+		 * Child("Child1 FN", "Child 1 LN",'F',LocalDate.of(2020, 2, 16), "No"));
+		 * children.add(new Child("Child2 FN", "Child 2 LN",'F',LocalDate.of(2015, 6,
+		 * 20), "No"));
+		 * 
+		 * childRepository.saveAll(children);
+		 */
 		
 /*
 		Section sec = (Section) (courses.get(0).getSections()).toArray()[0];

@@ -1,8 +1,17 @@
 package com.example.littleloomlocator.model;
 
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Table;
@@ -35,6 +44,18 @@ public class Parent {
 	
 	@Column(name="emergencyContactPhone")
 	private String emergencyContactPhone;
+
+	@OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JsonIgnore
+	private Set<Child> children = new HashSet<>();
+	
+	public Set<Child> getChildren() {
+		return children;
+	}
+
+	public void setChildren(Set<Child> children) {
+		this.children = children;
+	}
 
 	public long getId() {
 		return id;
@@ -112,5 +133,10 @@ public class Parent {
 		this.email = email;
 		this.emergencyContactName = emergencyContactName;
 		this.emergencyContactPhone = emergencyContactPhone;
+	}
+	
+	public void addChild(Child child) {
+		this.children.add(child);
+		child.setParent(this);
 	}
 }
