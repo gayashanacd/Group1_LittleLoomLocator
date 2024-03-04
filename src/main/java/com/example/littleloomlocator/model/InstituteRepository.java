@@ -6,7 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface InstituteRepository extends JpaRepository<Institute, Long> {
 	
-	List<Institute> findByName(String name);
-	List<Institute> findByCity(String city);
+	List<Institute> findByNameContainingIgnoreCase(String name);
+	List<Institute> findByCityContainingIgnoreCase(String city);
+	
+	List<Institute> findByNameContainingIgnoreCaseAndCityContainingIgnoreCase(String name, String city);
 	
 }
