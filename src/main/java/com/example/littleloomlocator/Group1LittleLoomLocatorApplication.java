@@ -10,15 +10,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-
-import com.example.littleloomlocator.model.Institute;
-import com.example.littleloomlocator.model.InstituteRepository;
-
-import com.example.littleloomlocator.model.Child;
-import com.example.littleloomlocator.model.ChildRepository;
-import com.example.littleloomlocator.model.Parent;
-import com.example.littleloomlocator.model.ParentRepository;
-
+import com.example.littleloomlocator.model.*;
 
 @SpringBootApplication
 public class Group1LittleLoomLocatorApplication {
@@ -28,13 +20,13 @@ public class Group1LittleLoomLocatorApplication {
 	}
 
 	@Bean
-	ApplicationRunner init(ParentRepository parentRepository, ChildRepository childRepository, InstituteRepository instituteRepo) {
+	ApplicationRunner init(ParentRepository parentRepository, ChildRepository childRepository, InstituteRepository instituteRepo, UserRepository userRepository) {
 		return args -> {
-			loadData(parentRepository, childRepository, instituteRepo);
+			loadData(parentRepository, childRepository, instituteRepo, userRepository);
 		};
 	}
 	
-	private void loadData(ParentRepository parentRepository, ChildRepository childRepository, InstituteRepository instituteRepo) {
+	private void loadData(ParentRepository parentRepository, ChildRepository childRepository, InstituteRepository instituteRepo, UserRepository userRepository) {
 		ArrayList<Parent> parents = new ArrayList<>();
 		parents.add(new Parent("Sujeewa", "Fernando","Sapperton", "6726678180", "sujeewau@hotmail.com", "Sujeewa", "6726678180"));
 		parents.add(new Parent("Namesh", "Chathura","New westminster", "2369963996", "nameshm89@gmail.com", "Namesh", "2369963996"));
@@ -91,6 +83,12 @@ public class Group1LittleLoomLocatorApplication {
 		instituteRepo.save(new Institute("Sing & Smile Child Care", "12057", "82 Ave", "Surrey", "BC",
 				"V3W 3E1", "Karen Beach", "778-591-5999", "http://www.singandsmilechildcare.com/",
 				"singandsmile@gmail.com"));
-
+		
+		// Adding test users 
+		ArrayList<User> users = new ArrayList<>();
+		users.add(new User("admin", "admin", "ADMIN"));
+		users.add(new User("parent", "parent", "PARENT"));
+		users.add(new User("institute", "institute", "INSTITUTE"));
+		userRepository.saveAll(users);
 	}
 }

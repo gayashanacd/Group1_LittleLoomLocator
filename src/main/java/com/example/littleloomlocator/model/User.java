@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 
 @Entity
-@Table(name = "courses")
+@Table(name = "users")
 public class User {
 	
 	@Id
@@ -17,13 +17,14 @@ public class User {
 	@Column(name = "password")
 	private String password;
 	
+	// TO DO - Move types in to a ENUM
+	// Accepted types : PARENT, INSTITUTE, ADMIN
 	@Column(name = "type")
 	private String type;
 	
 	public User() {}
 	
 	public User(String username, String password, String type) {
-		super();
 		this.username = username;
 		this.password = password;
 		this.type = type;
