@@ -95,8 +95,8 @@ public class Group1LittleLoomLocatorApplication {
 		userRepository.saveAll(users);
 
 		// Adding Notifications
-		notificationRepository.save(new Notification(2, 1, "Your application is accepted.", false));
-		notificationRepository.save(new Notification(2, 2, "Your application is still in waitlist. We will share an update once you receive a seat.", false));
-		notificationRepository.save(new Notification(3, 1, "We are in the process of accomodating seats for the requested children.", false));	
+		notificationRepository.save(new Notification(3, "Sing & Smile Child Care", 1, "Sujeewa", "Your application is accepted.", false));
+		notificationRepository.save(new Notification(2, "Nana Licensed Daycare", 2, "Namesh", "Your application is still in waitlist. We will share an update once you receive a seat.", false));
+		notificationRepository.save(new Notification(3, "Riverside Childcare NW", 1, "Sujeewa", "We are in the process of accomodating seats for the requested children.", false));	
 	}
 }

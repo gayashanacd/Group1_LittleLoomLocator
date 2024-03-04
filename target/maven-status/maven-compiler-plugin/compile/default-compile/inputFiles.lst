@@ -1,22 +1,12 @@
-<<<<<<< HEAD
 C:\Temp\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\NotificationRepository.java
+C:\Temp\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\controller\UserController.java
 C:\Temp\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\Group1LittleLoomLocatorApplication.java
 C:\Temp\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\ParentRepository.java
 C:\Temp\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\InstituteRepository.java
 C:\Temp\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\ChildRepository.java
+C:\Temp\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\UserRepository.java
 C:\Temp\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\Institute.java
 C:\Temp\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\Child.java
 C:\Temp\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\Notification.java
 C:\Temp\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\Parent.java
 C:\Temp\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\User.java
-=======
-C:\Temp\eclipse-workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\Parent.java
-C:\Temp\eclipse-workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\Child.java
-C:\Temp\eclipse-workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\UserRepository.java
-C:\Temp\eclipse-workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\InstituteRepository.java
-C:\Temp\eclipse-workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\User.java
-C:\Temp\eclipse-workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\ChildRepository.java
-C:\Temp\eclipse-workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\ParentRepository.java
-C:\Temp\eclipse-workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\Institute.java
-C:\Temp\eclipse-workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\Group1LittleLoomLocatorApplication.java
->>>>>>> branch 'master' of https://github.com/gayashanacd/Group1_LittleLoomLocator.git
