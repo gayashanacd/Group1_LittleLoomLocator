@@ -20,13 +20,24 @@ public class Group1LittleLoomLocatorApplication {
 	}
 
 	@Bean
-	ApplicationRunner init(ParentRepository parentRepository, ChildRepository childRepository, InstituteRepository instituteRepo, UserRepository userRepository, NotificationRepository notificationRepository) {
+	ApplicationRunner init(
+			ParentRepository parentRepository, 
+			ChildRepository childRepository, 
+			InstituteRepository instituteRepo, 
+			UserRepository userRepository, 
+			NotificationRepository notificationRepository,
+			RequestRepositroy requestRepositroy) {
 		return args -> {
-			loadData(parentRepository, childRepository, instituteRepo, userRepository, notificationRepository);
+			loadData(parentRepository, childRepository, instituteRepo, userRepository, notificationRepository, requestRepositroy);
 		};
 	}
 	
-	private void loadData(ParentRepository parentRepository, ChildRepository childRepository, InstituteRepository instituteRepo, UserRepository userRepository, NotificationRepository notificationRepository) {
+	private void loadData(ParentRepository parentRepository, 
+			ChildRepository childRepository, 
+			InstituteRepository instituteRepo, 
+			UserRepository userRepository, 
+			NotificationRepository notificationRepository,
+			RequestRepositroy requestRepositroy) {
 		ArrayList<Parent> parents = new ArrayList<>();
 		parents.add(new Parent("Sujeewa", "Fernando","Sapperton", "6726678180", "sujeewau@hotmail.com", "Sujeewa", "6726678180"));
 		parents.add(new Parent("Namesh", "Chathura","New westminster", "2369963996", "nameshm89@gmail.com", "Namesh", "2369963996"));
@@ -93,5 +104,12 @@ public class Group1LittleLoomLocatorApplication {
 		notificationRepository.save(new Notification(3, "Sing & Smile Child Care", 1, "Sujeewa", "Your application is accepted.", false));
 		notificationRepository.save(new Notification(2, "Nana Licensed Daycare", 2, "Namesh", "Your application is still in waitlist. We will share an update once you receive a seat.", false));
 		notificationRepository.save(new Notification(3, "Riverside Childcare NW", 1, "Sujeewa", "We are in the process of accomodating seats for the requested children.", false));
+		
+		// Adding requests
+		ArrayList<Request> requests = new ArrayList<>();
+		requests.add(new Request(1, 1, 1, "UNDER_36_MONTHS", "ENROLMENT", "PENDING"));
+		requests.add(new Request(2, 2, 1, "OVER_36_MONTHS", "ENROLMENT", "PENDING"));
+		requests.add(new Request(3, 2, 1, "OVER_36_MONTHS", "WAITLIST", "PENDING"));
+		requestRepositroy. saveAll(requests);
 	}
 }

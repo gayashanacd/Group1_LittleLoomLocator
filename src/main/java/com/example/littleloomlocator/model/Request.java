@@ -17,14 +17,16 @@ public class Request {
 	private long id;
 	
 	@Column(name = "parentId")
-	private String parentId;
+	private long parentId;
 	
 	@Column(name = "instituteId")
-	private String instituteId;
+	private long instituteId;
 	
 	@Column(name = "childId")
-	private String childId;
+	private long childId;
 	
+	// TO DO - Move types in to a ENUM
+	// Accepted types : UNDER_36_MONTHS, OVER_36_MONTHS
 	@Column(name = "ageGroup")
 	private String ageGroup;
 	
@@ -43,7 +45,7 @@ public class Request {
 	
 	public Request() {}
 	
-	public Request(String parentId, String instituteId, String childId, String ageGroup, String type, String status) {
+	public Request(long parentId, long instituteId, long childId, String ageGroup, String type, String status) {
 		super();
 		this.parentId = parentId;
 		this.instituteId = instituteId;
@@ -54,11 +56,11 @@ public class Request {
 		this.createdDateTime = LocalDateTime.now();
 	}
 
-	public String getInstituteId() {
+	public long getInstituteId() {
 		return instituteId;
 	}
 
-	public void setInstituteId(String instituteId) {
+	public void setInstituteId(long instituteId) {
 		this.instituteId = instituteId;
 	}
 
@@ -70,19 +72,19 @@ public class Request {
 		this.id = id;
 	}
 
-	public String getParentId() {
+	public long getParentId() {
 		return parentId;
 	}
 
-	public void setParentId(String parentId) {
+	public void setParentId(long parentId) {
 		this.parentId = parentId;
 	}
 
-	public String getChildId() {
+	public long getChildId() {
 		return childId;
 	}
 
-	public void setChildId(String childId) {
+	public void setChildId(long childId) {
 		this.childId = childId;
 	}
 

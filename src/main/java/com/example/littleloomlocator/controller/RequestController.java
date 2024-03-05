@@ -30,18 +30,18 @@ public class RequestController {
 	
 	// To get all requests, supporting search with parentId, instituteId, type
 	@GetMapping("/requests")
-	public ResponseEntity<List<Request>> getAllRequests(@RequestParam(required = false) String parentId, @RequestParam(required = false) String instituteId, @RequestParam(required = false) String type) {
+	public ResponseEntity<List<Request>> getAllRequests(@RequestParam(required = false) long parentId, @RequestParam(required = false) long instituteId, @RequestParam(required = false) String type) {	
 		try {
 			List<Request> requests = new ArrayList<Request>();
-			if (parentId == null && instituteId == null && type == null) {
+			if (parentId == 0 && instituteId == 0 && type == null) {
 				requestRepositroy.findAll().forEach(requests::add);
-			} else if (parentId != null && instituteId != null && type != null) {
+			} else if (parentId != 0 && instituteId != 0 && type != null) {
 				requestRepositroy.findByParentIdAndInstituteIdAndType(parentId, instituteId, type).forEach(requests::add);
-			} else if (parentId == null && instituteId == null && type != null) {
+			} else if (parentId == 0 && instituteId == 0 && type != null) {
 				requestRepositroy.findByType(type).forEach(requests::add);
-			} else if (parentId == null && instituteId != null && type == null) {
+			} else if (parentId == 0 && instituteId != 0 && type == null) {
 				requestRepositroy.findByInstituteId(instituteId).forEach(requests::add);
-			} else if (parentId != null && instituteId == null && type == null) {
+			} else if (parentId != 0 && instituteId == 0 && type == null) {
 				requestRepositroy.findByParentId(parentId).forEach(requests::add);
 			} 
 			return new ResponseEntity<>(requests, HttpStatus.OK);
