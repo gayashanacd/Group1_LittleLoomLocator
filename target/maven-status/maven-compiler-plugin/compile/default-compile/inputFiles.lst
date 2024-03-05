@@ -1,47 +1,16 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-C:\Sujeewa\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\User.java
-C:\Sujeewa\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\ParentRepository.java
-C:\Sujeewa\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\controller\UserController.java
-C:\Sujeewa\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\Group1LittleLoomLocatorApplication.java
-C:\Sujeewa\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\UserRepository.java
-C:\Sujeewa\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\ChildRepository.java
-C:\Sujeewa\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\InstituteRepository.java
-C:\Sujeewa\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\Institute.java
-C:\Sujeewa\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\controller\ParentController.java
-C:\Sujeewa\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\Child.java
-C:\Sujeewa\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\Parent.java
-=======
-<<<<<<< HEAD
-C:\Temp\eclipse-workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\Parent.java
-C:\Temp\eclipse-workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\Child.java
-C:\Temp\eclipse-workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\UserRepository.java
-C:\Temp\eclipse-workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\InstituteRepository.java
-C:\Temp\eclipse-workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\controller\UserController.java
-C:\Temp\eclipse-workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\User.java
-C:\Temp\eclipse-workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\ChildRepository.java
-C:\Temp\eclipse-workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\ParentRepository.java
-C:\Temp\eclipse-workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\Institute.java
-C:\Temp\eclipse-workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\Group1LittleLoomLocatorApplication.java
-=======
->>>>>>> branch 'master' of https://github.com/gayashanacd/Group1_LittleLoomLocator.git
-C:\Temp\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\NotificationRepository.java
-C:\Temp\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\Group1LittleLoomLocatorApplication.java
-C:\Temp\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\Institute.java
-C:\Temp\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\Notification.java
-C:\Temp\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\Parent.java
-C:\Temp\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\controller\InstituteController.java
-C:\Temp\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\controller\UserController.java
-C:\Temp\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\ParentRepository.java
-C:\Temp\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\InstituteRepository.java
-C:\Temp\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\ChildRepository.java
-C:\Temp\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\UserRepository.java
-C:\Temp\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\Child.java
-C:\Temp\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\controller\NotificationController.java
-C:\Temp\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\User.java
-<<<<<<< HEAD
-=======
->>>>>>> 7c9ab44f6455ec0a0165d0da0ccf44b3d6526fab
->>>>>>> branch 'master' of https://github.com/gayashanacd/Group1_LittleLoomLocator.git
->>>>>>> branch 'master' of https://github.com/gayashanacd/Group1_LittleLoomLocator.git
+D:\Sujeewa\DG\Term3\SE\Project\Workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\Institute.java
+D:\Sujeewa\DG\Term3\SE\Project\Workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\Child.java
+D:\Sujeewa\DG\Term3\SE\Project\Workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\Parent.java
+D:\Sujeewa\DG\Term3\SE\Project\Workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\ParentRepository.java
+D:\Sujeewa\DG\Term3\SE\Project\Workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\controller\NotificationController.java
+D:\Sujeewa\DG\Term3\SE\Project\Workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\ChildRepository.java
+D:\Sujeewa\DG\Term3\SE\Project\Workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\controller\ParentController.java
+D:\Sujeewa\DG\Term3\SE\Project\Workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\Group1LittleLoomLocatorApplication.java
+D:\Sujeewa\DG\Term3\SE\Project\Workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\controller\InstituteController.java
+D:\Sujeewa\DG\Term3\SE\Project\Workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\controller\ChildController.java
+D:\Sujeewa\DG\Term3\SE\Project\Workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\NotificationRepository.java
+D:\Sujeewa\DG\Term3\SE\Project\Workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\controller\UserController.java
+D:\Sujeewa\DG\Term3\SE\Project\Workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\User.java
+D:\Sujeewa\DG\Term3\SE\Project\Workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\UserRepository.java
+D:\Sujeewa\DG\Term3\SE\Project\Workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\InstituteRepository.java
+D:\Sujeewa\DG\Term3\SE\Project\Workspace\Group1_LittleLoomLocator\src\main\java\com\example\littleloomlocator\model\Notification.java
