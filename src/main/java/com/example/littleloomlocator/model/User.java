@@ -1,5 +1,7 @@
 package com.example.littleloomlocator.model;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.*;
 
 
@@ -22,12 +24,16 @@ public class User {
 	@Column(name = "type")
 	private String type;
 	
+	@Column(name = "createdDateTime")
+	private LocalDateTime createdDateTime;
+	
 	public User() {}
 	
 	public User(String username, String password, String type) {
 		this.username = username;
 		this.password = password;
 		this.type = type;
+		this.createdDateTime = LocalDateTime.now();
 	}
 	
 	public long getId() {
