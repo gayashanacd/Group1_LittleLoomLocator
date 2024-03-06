@@ -10,7 +10,20 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import com.example.littleloomlocator.model.*;
+import com.example.littleloomlocator.model.Child;
+import com.example.littleloomlocator.model.ChildRepository;
+import com.example.littleloomlocator.model.Institute;
+import com.example.littleloomlocator.model.InstituteRepository;
+import com.example.littleloomlocator.model.Notification;
+import com.example.littleloomlocator.model.NotificationRepository;
+import com.example.littleloomlocator.model.Parent;
+import com.example.littleloomlocator.model.ParentRepository;
+import com.example.littleloomlocator.model.Request;
+import com.example.littleloomlocator.model.RequestRepositroy;
+import com.example.littleloomlocator.model.User;
+import com.example.littleloomlocator.model.UserRepository;
+
+//import com.example.littleloomlocator.model.*;
 
 @SpringBootApplication
 public class Group1LittleLoomLocatorApplication {
