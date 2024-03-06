@@ -115,10 +115,4 @@ public class Child {
 	public Parent getParent() {
 		return parent;
 	}
-	
-	// Test Nelum 2
-	
-	// Test Sujeews
-	
-	
 }

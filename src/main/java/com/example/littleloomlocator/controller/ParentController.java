@@ -29,7 +29,6 @@ public class ParentController {
 	@Autowired
 	ParentRepository parentRepository;
 		
-	// To get a course
 	@GetMapping("/parents/{id}")
 	public ResponseEntity<Parent> getParentById(@PathVariable("id") long id) {
 		Optional<Parent> parentData = parentRepository.findById(id);
@@ -64,7 +63,6 @@ public class ParentController {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
 	
 	@PostMapping("/parents")
 	public ResponseEntity<Parent> createParent(@RequestBody Parent parent) {

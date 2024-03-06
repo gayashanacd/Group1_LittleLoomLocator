@@ -4,13 +4,17 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import com.example.littleloomlocator.util.RegistrationType;
+
 public interface RequestRepositroy extends JpaRepository<Request, Long>{
 	
 	List<Request> findByParentId(long parentId);
 	
 	List<Request> findByInstituteId(long instituteId);
 	
-	List<Request> findByParentIdAndInstituteIdAndType(long parentId, long instituteId, String type);
+	List<Request> findByInstituteIdAndType(long instituteId, RegistrationType type);
 	
-	List<Request> findByType(String type);
+	List<Request> findByParentIdAndInstituteIdAndType(long parentId, long instituteId, RegistrationType type);
+	
+	List<Request> findByType(RegistrationType type);
 }

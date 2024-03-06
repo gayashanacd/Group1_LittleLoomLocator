@@ -1,9 +1,8 @@
 package com.example.littleloomlocator.model;
 
 import java.time.LocalDateTime;
-
+import com.example.littleloomlocator.util.UserType;
 import jakarta.persistence.*;
-
 
 @Entity
 @Table(name = "users")
@@ -19,17 +18,15 @@ public class User {
 	@Column(name = "password")
 	private String password;
 	
-	// TO DO - Move types in to a ENUM
-	// Accepted types : PARENT, INSTITUTE, ADMIN
 	@Column(name = "type")
-	private String type;
+	private UserType type;
 	
 	@Column(name = "createdDateTime")
 	private LocalDateTime createdDateTime;
 	
 	public User() {}
 	
-	public User(String username, String password, String type) {
+	public User(String username, String password, UserType type) {
 		this.username = username;
 		this.password = password;
 		this.type = type;
@@ -60,12 +57,11 @@ public class User {
 		this.password = password;
 	}
 
-	public String getType() {
+	public UserType getType() {
 		return type;
 	}
 
-	public void setType(String type) {
+	public void setType(UserType type) {
 		this.type = type;
 	}
-	
 }

@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.littleloomlocator.model.*;
+import com.example.littleloomlocator.util.RegistrationType;
 
 @CrossOrigin(origins = "http://localhost:8081")
 @RestController
@@ -30,18 +31,20 @@ public class RequestController {
 	
 	// To get all requests, supporting search with parentId, instituteId, type
 	@GetMapping("/requests")
-	public ResponseEntity<List<Request>> getAllRequests(@RequestParam(required = false) long parentId, @RequestParam(required = false) long instituteId, @RequestParam(required = false) String type) {	
+	public ResponseEntity<List<Request>> getAllRequests(@RequestParam(required = false) Long parentId, @RequestParam(required = false) Long instituteId, @RequestParam(required = false) RegistrationType type) {	
 		try {
 			List<Request> requests = new ArrayList<Request>();
-			if (parentId == 0 && instituteId == 0 && type == null) {
+			if (parentId == null && instituteId == null && type == null) {
 				requestRepositroy.findAll().forEach(requests::add);
-			} else if (parentId != 0 && instituteId != 0 && type != null) {
+			} else if (parentId != null && instituteId != null && type != null) {
 				requestRepositroy.findByParentIdAndInstituteIdAndType(parentId, instituteId, type).forEach(requests::add);
-			} else if (parentId == 0 && instituteId == 0 && type != null) {
+			} else if (parentId == null && instituteId != null && type != null) {
+				requestRepositroy.findByInstituteIdAndType(instituteId, type).forEach(requests::add);
+			} else if (parentId == null && instituteId == null && type != null) {
 				requestRepositroy.findByType(type).forEach(requests::add);
-			} else if (parentId == 0 && instituteId != 0 && type == null) {
+			} else if (parentId == null && instituteId != null && type == null) {
 				requestRepositroy.findByInstituteId(instituteId).forEach(requests::add);
-			} else if (parentId != 0 && instituteId == 0 && type == null) {
+			} else if (parentId != null && instituteId == null && type == null) {
 				requestRepositroy.findByParentId(parentId).forEach(requests::add);
 			} 
 			return new ResponseEntity<>(requests, HttpStatus.OK);

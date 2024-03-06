@@ -30,7 +30,7 @@ public class ChildController {
 	@Autowired
 	ChildRepository childRepository;
 	
-	// To get a course
+	// To get a child
 	@GetMapping("/children/{id}")
 	public ResponseEntity<Child> getChildById(@PathVariable("id") long id) {
 		Optional<Child> childData = childRepository.findById(id);
@@ -42,6 +42,7 @@ public class ChildController {
 		}
 	}
 	
+	// To get all children
 	@GetMapping("/children")
 	public ResponseEntity<List<Child>> getAllChildren(@RequestParam(required = false) String firstName,
 			@RequestParam(required = false) String lastName) {
@@ -66,6 +67,7 @@ public class ChildController {
 		}
 	}
 	
+	// To create a child
 	@PostMapping("/children")
 	public ResponseEntity<Child> createChild(@RequestBody Child child) {
 		try {
@@ -76,7 +78,8 @@ public class ChildController {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-
+	
+	// To update a child
 	@PutMapping("/children/{id}")
 	public ResponseEntity<Child> updateChild(@PathVariable("id") long id, @RequestBody Child child) {
 		Optional<Child> childData = childRepository.findById(id);
@@ -95,6 +98,7 @@ public class ChildController {
 		}
 	}
 	
+	// To delete a child
 	@DeleteMapping("/children/{id}")
 	public ResponseEntity<HttpStatus> deleteChild(@PathVariable("id") long id) {
 		try {

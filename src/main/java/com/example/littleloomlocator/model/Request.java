@@ -2,6 +2,10 @@ package com.example.littleloomlocator.model;
 
 import java.time.LocalDateTime;
 
+import com.example.littleloomlocator.util.ChildAgeGroup;
+import com.example.littleloomlocator.util.RegistrationType;
+import com.example.littleloomlocator.util.RequestStatus;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,28 +29,21 @@ public class Request {
 	@Column(name = "childId")
 	private long childId;
 	
-	// TO DO - Move types in to a ENUM
-	// Accepted types : UNDER_36_MONTHS, OVER_36_MONTHS
 	@Column(name = "ageGroup")
-	private String ageGroup;
+	private ChildAgeGroup ageGroup;
 	
-	// TO DO - Move types in to a ENUM
-	// Accepted types : ENROLMENT, WAITLIST
 	@Column(name = "type")
-	private String type;
+	private RegistrationType type;
 		
-	// TO DO - Move status in to a ENUM
-	// Accepted types : PENDING, CONFIRMED, REJECTED
 	@Column(name = "status")
-	private String status;
+	private RequestStatus status;
 	
 	@Column(name = "createdDateTime")
 	private LocalDateTime createdDateTime;
 	
 	public Request() {}
 	
-	public Request(long parentId, long instituteId, long childId, String ageGroup, String type, String status) {
-		super();
+	public Request(long parentId, long instituteId, long childId, ChildAgeGroup ageGroup, RegistrationType type, RequestStatus status) {
 		this.parentId = parentId;
 		this.instituteId = instituteId;
 		this.childId = childId;
@@ -88,27 +85,27 @@ public class Request {
 		this.childId = childId;
 	}
 
-	public String getAgeGroup() {
+	public ChildAgeGroup getAgeGroup() {
 		return ageGroup;
 	}
 
-	public void setAgeGroup(String ageGroup) {
+	public void setAgeGroup(ChildAgeGroup ageGroup) {
 		this.ageGroup = ageGroup;
 	}
 
-	public String getType() {
+	public RegistrationType getType() {
 		return type;
 	}
 
-	public void setType(String type) {
+	public void setType(RegistrationType type) {
 		this.type = type;
 	}
 
-	public String getStatus() {
+	public RequestStatus getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(RequestStatus status) {
 		this.status = status;
 	}
 }
