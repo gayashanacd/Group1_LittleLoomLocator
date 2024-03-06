@@ -28,16 +28,12 @@ public class UserController {
 	@Autowired
 	UserRepository userRepository;
 	
-	// To get all users, supporting search with username
+	// To get all users
 	@GetMapping("/users")
-	public ResponseEntity<List<User>> getAllUsers(@RequestParam(required = false) String username) {
+	public ResponseEntity<List<User>> getAllUsers() {
 		try {
 			List<User> users = new ArrayList<User>();
-			if (username == null) {
-				userRepository.findAll().forEach(users::add);
-			} else if (username != null) {
-				userRepository.findByUsername(username).forEach(users::add);
-			} 
+			userRepository.findAll().forEach(users::add); 
 			return new ResponseEntity<>(users, HttpStatus.OK);
 
 		} catch (Exception e) {
@@ -45,6 +41,17 @@ public class UserController {
 		}
 	}
 	
+	// To get an user by username
+	@GetMapping("/users/by_username")
+	public ResponseEntity<User> getUserByUsername(@PathVariable("username") String username) {
+		Optional<User> userData = userRepository.findByUsername(username);
+		if (userData.isPresent()) {
+			return new ResponseEntity<>(userData.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+		
 	// To get an user
 	@GetMapping("/users/{id}")
 	public ResponseEntity<User> getUserById(@PathVariable("id") long id) {
