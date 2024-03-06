@@ -44,12 +44,20 @@ public class Child {
 	}
 
 	public Child(String firstName, String lastName, char gender, LocalDate dateOfBirth, String allergy) {
-		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.gender = gender;
 		this.dateOfBirth = dateOfBirth;
 		this.allergy = allergy;
+	}
+	
+	public Child(String firstName, String lastName, char gender, LocalDate dateOfBirth, String allergy, Parent parent) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.gender = gender;
+		this.dateOfBirth = dateOfBirth;
+		this.allergy = allergy;
+		this.parent = parent;
 	}
 
 	public long getId() {
