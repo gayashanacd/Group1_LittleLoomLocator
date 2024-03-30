@@ -82,6 +82,7 @@ public class Group1LittleLoomLocatorApplication {
 		users.add(new User("admin", "admin", UserType.valueOf("ADMIN")));
 		users.add(new User("parent", "parent", UserType.valueOf("PARENT")));
 		users.add(new User("institute", "institute", UserType.valueOf("INSTITUTE")));
+		users.add(new User("parent2", "parent2", UserType.valueOf("PARENT")));
 		userRepository.saveAll(users);
 		
 		// Adding notifications
@@ -91,9 +92,9 @@ public class Group1LittleLoomLocatorApplication {
 		
 		// Adding requests
 		ArrayList<Request> requests = new ArrayList<>();
-		requests.add(new Request(1, 1, 1, ChildAgeGroup.valueOf("UNDER_36_MONTHS"), RegistrationType.valueOf("ENROLMENT"), RequestStatus.valueOf("PENDING")));
-		requests.add(new Request(2, 2, 1, ChildAgeGroup.valueOf("BETWEEN_3_5_YEARS"), RegistrationType.valueOf("ENROLMENT"), RequestStatus.valueOf("PENDING")));
-		requests.add(new Request(3, 2, 1, ChildAgeGroup.valueOf("BETWEEN_3_5_YEARS"), RegistrationType.valueOf("WAITLIST"), RequestStatus.valueOf("PENDING")));
+		requests.add(new Request(1, 1, 1, ChildAgeGroup.valueOf("UNDER_36_MONTHS"), RegistrationType.valueOf("ENROLMENT"), RequestStatus.valueOf("PENDING"), "Test message 1"));
+		requests.add(new Request(2, 2, 1, ChildAgeGroup.valueOf("BETWEEN_3_5_YEARS"), RegistrationType.valueOf("ENROLMENT"), RequestStatus.valueOf("PENDING"), "Test message 2"));
+		requests.add(new Request(3, 2, 1, ChildAgeGroup.valueOf("BETWEEN_3_5_YEARS"), RegistrationType.valueOf("WAITLIST"), RequestStatus.valueOf("PENDING"), "Test message 3"));
 		requestRepositroy. saveAll(requests);
 	}
 }

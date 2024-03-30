@@ -1,8 +1,11 @@
 package com.example.littleloomlocator.model;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
 
 public interface ChildRepository extends JpaRepository<Child, Long> {
 	
@@ -16,4 +19,5 @@ public interface ChildRepository extends JpaRepository<Child, Long> {
 	
 	List<Child> findByFirstNameContainingIgnoreCaseAndLastNameContainingIgnoreCase(String title, String code);
 	
+	List<Child> findByParentId(long parentId);
 }

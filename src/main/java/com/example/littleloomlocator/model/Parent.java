@@ -49,6 +49,19 @@ public class Parent {
 	@JsonIgnore
 	private Set<Child> children = new HashSet<>();
 	
+	public Parent(String firstName, String lastName, String address, String phone, String email,
+			String emergencyContactName, String emergencyContactPhone, Set<Child> children) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.address = address;
+		this.phone = phone;
+		this.email = email;
+		this.emergencyContactName = emergencyContactName;
+		this.emergencyContactPhone = emergencyContactPhone;
+		this.children = children;
+	}
+
 	public Set<Child> getChildren() {
 		return children;
 	}
