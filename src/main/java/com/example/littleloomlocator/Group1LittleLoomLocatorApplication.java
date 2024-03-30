@@ -20,13 +20,13 @@ public class Group1LittleLoomLocatorApplication {
 	}
 
 	@Bean
-	ApplicationRunner init(ParentRepository parentRepository, ChildRepository childRepository, InstituteRepository instituteRepo, UserRepository userRepository) {
+	ApplicationRunner init(ParentRepository parentRepository, ChildRepository childRepository, InstituteRepository instituteRepo, UserRepository userRepository, NotificationRepository notificationRepository) {
 		return args -> {
-			loadData(parentRepository, childRepository, instituteRepo, userRepository);
+			loadData(parentRepository, childRepository, instituteRepo, userRepository, notificationRepository);
 		};
 	}
 	
-	private void loadData(ParentRepository parentRepository, ChildRepository childRepository, InstituteRepository instituteRepo, UserRepository userRepository) {
+	private void loadData(ParentRepository parentRepository, ChildRepository childRepository, InstituteRepository instituteRepo, UserRepository userRepository, NotificationRepository notificationRepository) {
 		ArrayList<Parent> parents = new ArrayList<>();
 		parents.add(new Parent("Sujeewa", "Fernando","Sapperton", "6726678180", "sujeewau@hotmail.com", "Sujeewa", "6726678180"));
 		parents.add(new Parent("Namesh", "Chathura","New westminster", "2369963996", "nameshm89@gmail.com", "Namesh", "2369963996"));
@@ -88,5 +88,10 @@ public class Group1LittleLoomLocatorApplication {
 		users.add(new User("parent", "parent", "PARENT"));
 		users.add(new User("institute", "institute", "INSTITUTE"));
 		userRepository.saveAll(users);
+		
+		// Adding Notifications
+		notificationRepository.save(new Notification(3, "Sing & Smile Child Care", 1, "Sujeewa", "Your application is accepted.", false));
+		notificationRepository.save(new Notification(2, "Nana Licensed Daycare", 2, "Namesh", "Your application is still in waitlist. We will share an update once you receive a seat.", false));
+		notificationRepository.save(new Notification(3, "Riverside Childcare NW", 1, "Sujeewa", "We are in the process of accomodating seats for the requested children.", false));
 	}
 }

@@ -64,8 +64,9 @@ public class InstituteController {
 				Institute institute2 = institute1.get();
 				
 				institute2.setName(institute.getName());
-				institute2.setStreetNumber(institute.getStreetNumber());
-				institute2.setStreetName(institute.getStreetName());
+				institute2.setUnitNumber(institute.getUnitNumber());
+				institute2.setBuildingNumber(institute.getBuildingNumber());
+				institute2.setStreet(institute.getStreet());
 				institute2.setCity(institute.getCity());
 				institute2.setProvince(institute.getProvince());
 				institute2.setPostalCode(institute.getPostalCode());
@@ -88,7 +89,7 @@ public class InstituteController {
 	public ResponseEntity<Institute> createInstitute(@RequestBody Institute institute){
 		
 		try {
-			Institute _institute = new Institute(institute.getName(), institute.getStreetNumber(), institute.getStreetName(), institute.getCity(), institute.getProvince(),
+			Institute _institute = new Institute(institute.getName(), institute.getUnitNumber(), institute.getBuildingNumber(), institute.getStreet(), institute.getCity(), institute.getProvince(),
 					institute.getPostalCode(), institute.getContactName(), institute.getContactPhone(), institute.getWebSite(),
 					institute.getEmail());
 			
