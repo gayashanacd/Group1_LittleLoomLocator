@@ -92,8 +92,8 @@ public class Group1LittleLoomLocatorApplication {
 		// Adding requests
 		ArrayList<Request> requests = new ArrayList<>();
 		requests.add(new Request(1, 1, 1, ChildAgeGroup.valueOf("UNDER_36_MONTHS"), RegistrationType.valueOf("ENROLMENT"), RequestStatus.valueOf("PENDING")));
-		requests.add(new Request(2, 2, 1, ChildAgeGroup.valueOf("OVER_36_MONTHS"), RegistrationType.valueOf("ENROLMENT"), RequestStatus.valueOf("PENDING")));
-		requests.add(new Request(3, 2, 1, ChildAgeGroup.valueOf("OVER_36_MONTHS"), RegistrationType.valueOf("WAITLIST"), RequestStatus.valueOf("PENDING")));
+		requests.add(new Request(2, 2, 1, ChildAgeGroup.valueOf("BETWEEN_3_5_YEARS"), RegistrationType.valueOf("ENROLMENT"), RequestStatus.valueOf("PENDING")));
+		requests.add(new Request(3, 2, 1, ChildAgeGroup.valueOf("BETWEEN_3_5_YEARS"), RegistrationType.valueOf("WAITLIST"), RequestStatus.valueOf("PENDING")));
 		requestRepositroy. saveAll(requests);
 	}
 }
