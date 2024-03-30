@@ -65,15 +65,15 @@ public class Group1LittleLoomLocatorApplication {
 		parentRepository.saveAll(parents);
 		
 		// Adding Institutes
-		instituteRepo.save(new Institute("Riverside Childcare NW", "140-1110", "Ewen Ave", "New Westminster", "BC",
+		instituteRepo.save(new Institute("Riverside Childcare NW", "140-1110", "" ,"Ewen Ave", "New Westminster", "BC",
 				"V3M 5E4", "Paul Barby", "604-354-1180", "https://riversidechildcare.ca/",
 				"riversideccnw@gmail.com"));
 		
-		instituteRepo.save(new Institute("Nana Licensed Daycare", "518 E", "59th Ave", "Vancouver", "BC",
+		instituteRepo.save(new Institute("Nana Licensed Daycare", "518 E", "" ,"59th Ave", "Vancouver", "BC",
 				"V5X 1Y3", "Nana Wilson", "604-367-5728", "https://nana-licensed-daycare.business.site/",
 				"nanadaycare@gmail.com"));
 		
-		instituteRepo.save(new Institute("Sing & Smile Child Care", "12057", "82 Ave", "Surrey", "BC",
+		instituteRepo.save(new Institute("Sing & Smile Child Care", "12057", "" ,"82 Ave", "Surrey", "BC",
 				"V3W 3E1", "Karen Beach", "778-591-5999", "http://www.singandsmilechildcare.com/",
 				"singandsmile@gmail.com"));
 		
