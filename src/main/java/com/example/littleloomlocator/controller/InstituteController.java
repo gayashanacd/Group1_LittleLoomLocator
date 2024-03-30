@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.littleloomlocator.model.Institute;
 import com.example.littleloomlocator.model.InstituteRepository;
+import com.example.littleloomlocator.util.ChildAgeGroup;
 
 @CrossOrigin(origins = "http://localhost:8081")
 @RestController
@@ -125,7 +126,8 @@ public class InstituteController {
 	
 	// To get all institutes
 	@GetMapping("/institutes")
-	public ResponseEntity<List<Institute>> getAllInstitutes(@RequestParam(required = false) String name, String city){
+	public ResponseEntity<List<Institute>> getAllInstitutes(@RequestParam(required = false) String name, String city,
+			String province, ChildAgeGroup ageGroup, String waitlistingAllowed){
 		try {
 			List<Institute> institutes = new ArrayList<Institute>();
 			
@@ -140,6 +142,15 @@ public class InstituteController {
 			}
 			else if(city != null) {
 				instituteRepo.findByCityContainingIgnoreCase(city).forEach(institutes::add);
+			}
+			else if(province != null) {
+				instituteRepo.findByProvinceContainingIgnoreCase(province).forEach(institutes::add);
+			}
+			//else if(ageGroup != null) {
+			//	instituteRepo.findByAgeGroupContainingIgnoreCase(ageGroup).forEach(institutes::add);
+			//}
+			else if(waitlistingAllowed != null) {
+				instituteRepo.findByWaitlistingAllowedContainingIgnoreCase(waitlistingAllowed).forEach(institutes::add);
 			}
 			
 			if(institutes.isEmpty()) {
