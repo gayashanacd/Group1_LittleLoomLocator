@@ -29,9 +29,9 @@ public class InstituteController {
 	@Autowired
 	InstituteRepository instituteRepo;
 	
+	// To delete an institutes
 	@DeleteMapping("/institutes/{id}")
 	public ResponseEntity<HttpStatus> deleteInstituteById(@PathVariable long id){
-		
 		try {
 			instituteRepo.deleteById(id);
 			
@@ -41,9 +41,9 @@ public class InstituteController {
 		}
 	}
 	
+	// To delete all institutes
 	@DeleteMapping("/institutes")
 	public ResponseEntity<HttpStatus> deleteAllInstitutes(){
-		
 		try {
 			instituteRepo.deleteAll();
 			
@@ -53,9 +53,9 @@ public class InstituteController {
 		}
 	}
 	
+	// To update an institute
 	@PutMapping("/institutes/{id}")
 	public ResponseEntity<Institute> updateInstituteById(@PathVariable long id, @RequestBody Institute institute){
-		
 		try {
 			Optional<Institute> institute1 = instituteRepo.findById(id);
 			
@@ -85,9 +85,9 @@ public class InstituteController {
 		}
 	}
 	
+	// To create a new institute
 	@PostMapping("/institutes")
 	public ResponseEntity<Institute> createInstitute(@RequestBody Institute institute){
-		
 		try {
 			Institute _institute = new Institute(institute.getName(), institute.getUnitNumber(), institute.getBuildingNumber(), institute.getStreet(), institute.getCity(), institute.getProvince(),
 					institute.getPostalCode(), institute.getContactName(), institute.getContactPhone(), institute.getWebSite(),
@@ -101,9 +101,9 @@ public class InstituteController {
 		}
 	}
 	
+	// To get an institute
 	@GetMapping("/institutes/{id}")
 	public ResponseEntity<Institute> getInstituteById(@PathVariable long id){
-		
 		try {
 			Optional<Institute> institute = instituteRepo.findById(id);
 			
@@ -118,9 +118,9 @@ public class InstituteController {
 		}
 	}
 	
+	// To get all institutes
 	@GetMapping("/institutes")
 	public ResponseEntity<List<Institute>> getAllInstitutes(@RequestParam(required = false) String name, String city){
-		
 		try {
 			List<Institute> institutes = new ArrayList<Institute>();
 			
@@ -146,5 +146,4 @@ public class InstituteController {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-
 }
