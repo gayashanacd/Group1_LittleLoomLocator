@@ -41,9 +41,12 @@ public class Request {
 	@Column(name = "createdDateTime")
 	private LocalDateTime createdDateTime;
 	
+	@Column(name = "message")
+	private String message;
+	
 	public Request() {}
 	
-	public Request(long parentId, long instituteId, long childId, ChildAgeGroup ageGroup, RegistrationType type, RequestStatus status) {
+	public Request(long parentId, long instituteId, long childId, ChildAgeGroup ageGroup, RegistrationType type, RequestStatus status, String message) {
 		this.parentId = parentId;
 		this.instituteId = instituteId;
 		this.childId = childId;
@@ -51,6 +54,15 @@ public class Request {
 		this.type = type;
 		this.status = status;
 		this.createdDateTime = LocalDateTime.now();
+		this.message = message;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
 	public long getInstituteId() {

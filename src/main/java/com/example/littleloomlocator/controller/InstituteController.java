@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.littleloomlocator.model.Institute;
 import com.example.littleloomlocator.model.InstituteRepository;
+import com.example.littleloomlocator.util.ChildAgeGroup;
 
 @CrossOrigin(origins = "http://localhost:8081")
 @RestController
@@ -64,8 +65,9 @@ public class InstituteController {
 				Institute institute2 = institute1.get();
 				
 				institute2.setName(institute.getName());
-				institute2.setStreetNumber(institute.getStreetNumber());
-				institute2.setStreetName(institute.getStreetName());
+				institute2.setUnitNumber(institute.getUnitNumber());
+				institute2.setBuildingNumber(institute.getBuildingNumber());
+				institute2.setStreet(institute.getStreet());
 				institute2.setCity(institute.getCity());
 				institute2.setProvince(institute.getProvince());
 				institute2.setPostalCode(institute.getPostalCode());
@@ -73,7 +75,11 @@ public class InstituteController {
 				institute2.setContactPhone(institute.getContactPhone());
 				institute2.setWebSite(institute.getWebSite());
 				institute2.setEmail(institute.getEmail());
-				
+				institute2.setPostalCode(institute.getProgramName());
+				institute2.setAgeGroup(institute.getAgeGroup());
+				institute2.setProgramCapacity(institute.getProgramCapacity());
+				institute2.setWaitlistingAllowed(institute.getWaitlistingAllowed());
+				institute2.setWaitlistCapacity(institute.getWaitlistCapacity());
 				instituteRepo.save(institute2);
 				return new ResponseEntity<>(institute2, HttpStatus.OK);
 			}
@@ -88,9 +94,10 @@ public class InstituteController {
 	@PostMapping("/institutes")
 	public ResponseEntity<Institute> createInstitute(@RequestBody Institute institute){
 		try {
-			Institute _institute = new Institute(institute.getName(), institute.getStreetNumber(), institute.getStreetName(), institute.getCity(), institute.getProvince(),
+			Institute _institute = new Institute(institute.getName(), institute.getUnitNumber(), institute.getBuildingNumber(), institute.getStreet(), institute.getCity(), institute.getProvince(),
 					institute.getPostalCode(), institute.getContactName(), institute.getContactPhone(), institute.getWebSite(),
-					institute.getEmail());
+					institute.getEmail(), institute.getProgramName(), institute.getAgeGroup(), institute.getProgramCapacity(),
+					institute.getWaitlistingAllowed(), institute.getWaitlistCapacity());
 			
 			instituteRepo.save(_institute);
 			
@@ -119,7 +126,8 @@ public class InstituteController {
 	
 	// To get all institutes
 	@GetMapping("/institutes")
-	public ResponseEntity<List<Institute>> getAllInstitutes(@RequestParam(required = false) String name, String city){
+	public ResponseEntity<List<Institute>> getAllInstitutes(@RequestParam(required = false) String name, String city,
+			String province, ChildAgeGroup ageGroup, String waitlistingAllowed){
 		try {
 			List<Institute> institutes = new ArrayList<Institute>();
 			
@@ -134,6 +142,15 @@ public class InstituteController {
 			}
 			else if(city != null) {
 				instituteRepo.findByCityContainingIgnoreCase(city).forEach(institutes::add);
+			}
+			else if(province != null) {
+				instituteRepo.findByProvinceContainingIgnoreCase(province).forEach(institutes::add);
+			}
+			//else if(ageGroup != null) {
+			//	instituteRepo.findByAgeGroupContainingIgnoreCase(ageGroup).forEach(institutes::add);
+			//}
+			else if(waitlistingAllowed != null) {
+				instituteRepo.findByWaitlistingAllowedContainingIgnoreCase(waitlistingAllowed).forEach(institutes::add);
 			}
 			
 			if(institutes.isEmpty()) {

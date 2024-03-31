@@ -45,7 +45,7 @@ public class ChildController {
 	// To get all children
 	@GetMapping("/children")
 	public ResponseEntity<List<Child>> getAllChildren(@RequestParam(required = false) String firstName,
-			@RequestParam(required = false) String lastName) {
+			@RequestParam(required = false) String lastName, @RequestParam(required = false) Long parentId) {
 
 		try {
 			List<Child> children = new ArrayList<Child>();
@@ -58,8 +58,9 @@ public class ChildController {
 				childRepository.findByFirstNameContainingIgnoreCase(firstName).forEach(children::add);
 			} else if (lastName != null) {
 				childRepository.findByLastNameContainingIgnoreCase(lastName).forEach(children::add);
+			} else if (parentId != null ) {
+				childRepository.findByParentId(parentId).forEach(children::add);
 			}
-
 			return new ResponseEntity<>(children, HttpStatus.OK);
 
 		} catch (Exception e) {

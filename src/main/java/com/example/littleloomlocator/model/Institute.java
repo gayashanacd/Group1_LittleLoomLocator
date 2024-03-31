@@ -1,5 +1,7 @@
 package com.example.littleloomlocator.model;
 
+import com.example.littleloomlocator.util.ChildAgeGroup;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,11 +20,14 @@ public class Institute {
 	@Column(name = "name")
 	private String name;
 	
-	@Column(name = "streetNumber")
-	private String streetNumber;
+	@Column(name = "unitNumber")
+	private String unitNumber;
 	
-	@Column(name = "streetName")
-	private String streetName;
+	@Column(name = "buildingNumber")
+	private String buildingNumber;
+	
+	@Column(name = "street")
+	private String street;
 	
 	@Column(name = "city")
 	private String city;
@@ -44,18 +49,35 @@ public class Institute {
 	
 	@Column(name = "email")
 	private String email;
+	
+	@Column(name = "programName")
+	private String programName;
+	
+	@Column(name = "ageGroup")
+	private ChildAgeGroup ageGroup;
+	
+	@Column(name = "programCapacity")
+	private int programCapacity;
+	
+	@Column(name = "waitlistingAllowed")
+	private String waitlistingAllowed;
+	
+	@Column(name = "waitlistCapacity")
+	private int waitlistCapacity;
 
 	public Institute() {
 		super();
 	}
 
-	public Institute(String name, String streetNumber, String streetName, String city, String province,
-			String postalCode, String contactName, String contactPhone, String webSite,
-			String email) {
+	public Institute(String name, String unitNumber, String buildingNumber, String street, String city, String province,
+			String postalCode, String contactName, String contactPhone, String webSite, String email, 
+			String programName, ChildAgeGroup ageGroup, int programCapacity, String waitlistingAllowed,
+			int waitlistCapacity) {
 		super();
 		this.name = name;
-		this.streetNumber = streetNumber;
-		this.streetName = streetName;
+		this.unitNumber = unitNumber;
+		this.buildingNumber = buildingNumber;
+		this.street = street;
 		this.city = city;
 		this.province = province;
 		this.postalCode = postalCode;
@@ -63,6 +85,11 @@ public class Institute {
 		this.contactPhone = contactPhone;
 		this.webSite = webSite;
 		this.email = email;
+		this.programName = programName;
+		this.ageGroup = ageGroup;
+		this.programCapacity = programCapacity;
+		this.waitlistingAllowed = waitlistingAllowed;
+		this.waitlistCapacity = waitlistCapacity;
 	}
 
 	public long getId() {
@@ -81,20 +108,28 @@ public class Institute {
 		this.name = name;
 	}
 
-	public String getStreetNumber() {
-		return streetNumber;
+	public String getUnitNumber() {
+		return unitNumber;
 	}
 
-	public void setStreetNumber(String streetNumber) {
-		this.streetNumber = streetNumber;
+	public void setUnitNumber(String unitNumber) {
+		this.unitNumber = unitNumber;
 	}
 
-	public String getStreetName() {
-		return streetName;
+	public String getBuildingNumber() {
+		return buildingNumber;
 	}
 
-	public void setStreetName(String streetName) {
-		this.streetName = streetName;
+	public void setBuildingNumber(String buildingNumber) {
+		this.buildingNumber = buildingNumber;
+	}
+
+	public String getStreet() {
+		return street;
+	}
+
+	public void setStreet(String street) {
+		this.street = street;
 	}
 
 	public String getCity() {
@@ -151,6 +186,46 @@ public class Institute {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getProgramName() {
+		return programName;
+	}
+
+	public void setProgramName(String programName) {
+		this.programName = programName;
+	}
+
+	public ChildAgeGroup getAgeGroup() {
+		return ageGroup;
+	}
+
+	public void setAgeGroup(ChildAgeGroup ageGroup) {
+		this.ageGroup = ageGroup;
+	}
+
+	public int getProgramCapacity() {
+		return programCapacity;
+	}
+
+	public void setProgramCapacity(int programCapacity) {
+		this.programCapacity = programCapacity;
+	}
+
+	public String getWaitlistingAllowed() {
+		return waitlistingAllowed;
+	}
+
+	public void setWaitlistingAllowed(String waitlistingAllowed) {
+		this.waitlistingAllowed = waitlistingAllowed;
+	}
+
+	public int getWaitlistCapacity() {
+		return waitlistCapacity;
+	}
+
+	public void setWaitlistCapacity(int waitlistCapacity) {
+		this.waitlistCapacity = waitlistCapacity;
 	}
 	
 }

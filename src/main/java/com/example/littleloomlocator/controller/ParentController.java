@@ -68,8 +68,9 @@ public class ParentController {
 	public ResponseEntity<Parent> createParent(@RequestBody Parent parent) {
 		try {
 			Parent _parent = parentRepository.save(new Parent(parent.getFirstName(), parent.getLastName(), 
-					parent.getAddress(), parent.getPhone(), parent.getEmail(), parent.getEmergencyContactName(), 
-					parent.getEmergencyContactPhone()));
+					parent.getUnit(), parent.getBuilding(), parent.getStreet(), parent.getCity(), 
+					parent.getProvince(), parent.getPostalCode(), parent.getPhone(), parent.getEmail(), 
+					parent.getEmergencyContactName(), parent.getEmergencyContactPhone(), parent.getUserId()));
 			return new ResponseEntity<>(_parent, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -84,7 +85,12 @@ public class ParentController {
 			Parent _parent = parentData.get();
 			_parent.setFirstName(parent.getFirstName());
 			_parent.setLastName(parent.getLastName());
-			_parent.setAddress(parent.getAddress());
+			_parent.setUnit(parent.getUnit());
+			_parent.setBuilding(parent.getBuilding());
+			_parent.setStreet(parent.getStreet());
+			_parent.setCity(parent.getCity());
+			_parent.setProvince(parent.getProvince());
+			_parent.setPostalCode(parent.getPostalCode());
 			_parent.setPhone(parent.getPhone());
 			_parent.setEmail(parent.getEmail());
 			_parent.setEmergencyContactName(parent.getEmergencyContactName());

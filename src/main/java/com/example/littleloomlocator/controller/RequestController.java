@@ -75,7 +75,8 @@ public class RequestController {
 						request.getChildId(), 
 						request.getAgeGroup(), 
 						request.getType(), 
-						request.getStatus()
+						request.getStatus(),
+						request.getMessage()
 					));
 			return new ResponseEntity<>(_request, HttpStatus.CREATED);
 		} catch (Exception e) {

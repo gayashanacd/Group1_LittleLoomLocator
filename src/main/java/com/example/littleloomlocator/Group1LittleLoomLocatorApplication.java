@@ -55,9 +55,9 @@ public class Group1LittleLoomLocatorApplication {
 		
 		// create parents 
 		ArrayList<Parent> parents = new ArrayList<>();
-		parents.add(new Parent("Sujeewa", "Fernando","Sapperton", "6726678180", "sujeewau@hotmail.com", "Sujeewa", "6726678180"));
-		parents.add(new Parent("Namesh", "Chathura","New westminster", "2369963996", "nameshm89@gmail.com", "Namesh", "2369963996"));
-		parents.add(new Parent("Indika", "Gayashan","New westminster", "7788825994", "gayazhanmit@yahoo.com", "Indika", "7788825994"));
+		parents.add(new Parent("Sujeewa", "Fernando", "1200", "320", "Sherbrooke Street", "New Westminster", "BC", "V3L3M6", "6726678180", "sujeewau@hotmail.com", "Sujeewa", "6726678180", 1));
+		parents.add(new Parent("Namesh", "Chathura", "1201", "321", "Street1", "New Westminster", "BC", "V3L3M6", "2369963996", "nameshm89@gmail.com", "Namesh", "2369963996", 2));
+		parents.add(new Parent("Indika", "Gayashan", "1202", "322", "Street2", "New Westminster", "BC", "V3L3M6", "7788825994", "gayazhanmit@yahoo.com", "Indika", "7788825994", 3));
 		
 		// add children to parents
 		parents.get(0).addChild(new Child("Child1 FN", "Child 1 LN",'F',LocalDate.of(2020, 2, 16), "No"));
@@ -65,23 +65,24 @@ public class Group1LittleLoomLocatorApplication {
 		parentRepository.saveAll(parents);
 		
 		// Adding Institutes
-		instituteRepo.save(new Institute("Riverside Childcare NW", "140-1110", "Ewen Ave", "New Westminster", "BC",
+		instituteRepo.save(new Institute("Riverside Childcare NW", "140-1110", "" ,"Ewen Ave", "New Westminster", "BC",
 				"V3M 5E4", "Paul Barby", "604-354-1180", "https://riversidechildcare.ca/",
-				"riversideccnw@gmail.com"));
+				"riversideccnw@gmail.com", "Infant", ChildAgeGroup.valueOf("UNDER_36_MONTHS"), 20, "Yes", 5));
 		
-		instituteRepo.save(new Institute("Nana Licensed Daycare", "518 E", "59th Ave", "Vancouver", "BC",
+		instituteRepo.save(new Institute("Nana Licensed Daycare", "518 E", "" ,"59th Ave", "Vancouver", "BC",
 				"V5X 1Y3", "Nana Wilson", "604-367-5728", "https://nana-licensed-daycare.business.site/",
-				"nanadaycare@gmail.com"));
+				"nanadaycare@gmail.com", "Preschool", ChildAgeGroup.valueOf("BETWEEN_3_5_YEARS"), 50, "Yes", 10));
 		
-		instituteRepo.save(new Institute("Sing & Smile Child Care", "12057", "82 Ave", "Surrey", "BC",
+		instituteRepo.save(new Institute("Sing & Smile Child Care", "12057", "" ,"82 Ave", "Surrey", "BC",
 				"V3W 3E1", "Karen Beach", "778-591-5999", "http://www.singandsmilechildcare.com/",
-				"singandsmile@gmail.com"));
+				"singandsmile@gmail.com", "Preschool", ChildAgeGroup.valueOf("BETWEEN_3_5_YEARS"), 30, "No", 0));
 		
 		// Adding users 
 		ArrayList<User> users = new ArrayList<>();
 		users.add(new User("admin", "admin", UserType.valueOf("ADMIN")));
 		users.add(new User("parent", "parent", UserType.valueOf("PARENT")));
 		users.add(new User("institute", "institute", UserType.valueOf("INSTITUTE")));
+		users.add(new User("parent2", "parent2", UserType.valueOf("PARENT")));
 		userRepository.saveAll(users);
 		
 		// Adding notifications
@@ -91,9 +92,9 @@ public class Group1LittleLoomLocatorApplication {
 		
 		// Adding requests
 		ArrayList<Request> requests = new ArrayList<>();
-		requests.add(new Request(1, 1, 1, ChildAgeGroup.valueOf("UNDER_36_MONTHS"), RegistrationType.valueOf("ENROLMENT"), RequestStatus.valueOf("PENDING")));
-		requests.add(new Request(2, 2, 1, ChildAgeGroup.valueOf("OVER_36_MONTHS"), RegistrationType.valueOf("ENROLMENT"), RequestStatus.valueOf("PENDING")));
-		requests.add(new Request(3, 2, 1, ChildAgeGroup.valueOf("OVER_36_MONTHS"), RegistrationType.valueOf("WAITLIST"), RequestStatus.valueOf("PENDING")));
+		requests.add(new Request(1, 1, 1, ChildAgeGroup.valueOf("UNDER_36_MONTHS"), RegistrationType.valueOf("ENROLMENT"), RequestStatus.valueOf("PENDING"), "Test message 1"));
+		requests.add(new Request(2, 2, 1, ChildAgeGroup.valueOf("BETWEEN_3_5_YEARS"), RegistrationType.valueOf("ENROLMENT"), RequestStatus.valueOf("PENDING"), "Test message 2"));
+		requests.add(new Request(3, 2, 1, ChildAgeGroup.valueOf("BETWEEN_3_5_YEARS"), RegistrationType.valueOf("WAITLIST"), RequestStatus.valueOf("PENDING"), "Test message 3"));
 		requestRepositroy. saveAll(requests);
 	}
 }
