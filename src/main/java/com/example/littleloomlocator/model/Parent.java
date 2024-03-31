@@ -29,9 +29,24 @@ public class Parent {
 	
 	@Column(name="lastname")
 	private String lastName;
+	
+	@Column(name="unit")
+	private String unit;
+	
+	@Column(name="building")
+	private String building;
+	
+	@Column(name="Street")
+	private String Street;
+	
+	@Column(name="city")
+	private String city;
 		
-	@Column(name="address")
-	private String address;
+	@Column(name="province")
+	private String province;
+	
+	@Column(name="postalCode")
+	private String postalCode;
 	
 	@Column(name="phone")
 	private String phone;
@@ -45,23 +60,13 @@ public class Parent {
 	@Column(name="emergencyContactPhone")
 	private String emergencyContactPhone;
 
+	@Column(name="userId")
+	private long userId;
+	
 	@OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JsonIgnore
 	private Set<Child> children = new HashSet<>();
 	
-	public Parent(String firstName, String lastName, String address, String phone, String email,
-			String emergencyContactName, String emergencyContactPhone, Set<Child> children) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.address = address;
-		this.phone = phone;
-		this.email = email;
-		this.emergencyContactName = emergencyContactName;
-		this.emergencyContactPhone = emergencyContactPhone;
-		this.children = children;
-	}
-
 	public Set<Child> getChildren() {
 		return children;
 	}
@@ -94,12 +99,52 @@ public class Parent {
 		this.lastName = lastName;
 	}
 
-	public String getAddress() {
-		return address;
+	public String getUnit() {
+		return unit;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setUnit(String unit) {
+		this.unit = unit;
+	}
+
+	public String getBuilding() {
+		return building;
+	}
+
+	public void setBuilding(String building) {
+		this.building = building;
+	}
+
+	public String getStreet() {
+		return Street;
+	}
+
+	public void setStreet(String street) {
+		Street = street;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getProvince() {
+		return province;
+	}
+
+	public void setProvince(String province) {
+		this.province = province;
+	}
+
+	public String getPostalCode() {
+		return postalCode;
+	}
+
+	public void setPostalCode(String postalCode) {
+		this.postalCode = postalCode;
 	}
 
 	public String getPhone() {
@@ -134,20 +179,54 @@ public class Parent {
 		this.emergencyContactPhone = emergencyContactPhone;
 	}
 
+	public long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(long userId) {
+		this.userId = userId;
+	}
+
 	public Parent() {
 	}
 
-	public Parent(String firstName, String lastName, String address, String phone, String email,
-			String emergencyContactName, String emergencyContactPhone) {
+	public Parent(String firstName, String lastName, String unit, String building, String street, String city,
+			String province, String postalCode, String phone, String email, String emergencyContactName,
+			String emergencyContactPhone, long userId) {
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.address = address;
+		this.unit = unit;
+		this.building = building;
+		Street = street;
+		this.city = city;
+		this.province = province;
+		this.postalCode = postalCode;
 		this.phone = phone;
 		this.email = email;
 		this.emergencyContactName = emergencyContactName;
 		this.emergencyContactPhone = emergencyContactPhone;
+		this.userId = userId;
 	}
-	
+
+	public Parent(String firstName, String lastName, String unit, String building, String street, String city,
+			String province, String postalCode, String phone, String email, String emergencyContactName,
+			String emergencyContactPhone, long userId, Set<Child> children) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.unit = unit;
+		this.building = building;
+		Street = street;
+		this.city = city;
+		this.province = province;
+		this.postalCode = postalCode;
+		this.phone = phone;
+		this.email = email;
+		this.emergencyContactName = emergencyContactName;
+		this.emergencyContactPhone = emergencyContactPhone;
+		this.userId = userId;
+		this.children = children;
+	}
+
 	public void addChild(Child child) {
 		this.children.add(child);
 		child.setParent(this);
