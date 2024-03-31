@@ -64,6 +64,7 @@ public class ParentController {
 		}
 	}
 	
+	//Create parent record
 	@PostMapping("/parents")
 	public ResponseEntity<Parent> createParent(@RequestBody Parent parent) {
 		try {
