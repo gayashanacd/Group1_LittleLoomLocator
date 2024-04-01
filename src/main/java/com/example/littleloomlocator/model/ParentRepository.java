@@ -19,4 +19,5 @@ public interface ParentRepository extends JpaRepository<Parent, Long> {
 	
 	List<Parent> findByEmail(String email);
 	
+	List<Parent> findByUserId(long userId);
 }

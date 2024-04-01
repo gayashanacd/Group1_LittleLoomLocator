@@ -42,7 +42,7 @@ public class ParentController {
 	
 	@GetMapping("/parents")
 	public ResponseEntity<List<Parent>> getAllParents(@RequestParam(required = false) String firstName,
-			@RequestParam(required = false) String lastName) {
+			@RequestParam(required = false) String lastName, @RequestParam(required = false) Long userId) {
 
 		try {
 			List<Parent> parents = new ArrayList<Parent>();
@@ -55,8 +55,10 @@ public class ParentController {
 				parentRepository.findByFirstNameContainingIgnoreCase(firstName).forEach(parents::add);
 			} else if (lastName != null) {
 				parentRepository.findByLastNameContainingIgnoreCase(lastName).forEach(parents::add);
+			} else if (userId != null) {
+				parentRepository.findByUserId(userId).forEach(parents::add);
 			}
-
+			
 			return new ResponseEntity<>(parents, HttpStatus.OK);
 
 		} catch (Exception e) {

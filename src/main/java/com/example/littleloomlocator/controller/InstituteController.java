@@ -80,6 +80,7 @@ public class InstituteController {
 				institute2.setProgramCapacity(institute.getProgramCapacity());
 				institute2.setWaitlistingAllowed(institute.getWaitlistingAllowed());
 				institute2.setWaitlistCapacity(institute.getWaitlistCapacity());
+				institute2.setUserId(institute.getUserId());
 				instituteRepo.save(institute2);
 				return new ResponseEntity<>(institute2, HttpStatus.OK);
 			}
@@ -97,7 +98,7 @@ public class InstituteController {
 			Institute _institute = new Institute(institute.getName(), institute.getUnitNumber(), institute.getBuildingNumber(), institute.getStreet(), institute.getCity(), institute.getProvince(),
 					institute.getPostalCode(), institute.getContactName(), institute.getContactPhone(), institute.getWebSite(),
 					institute.getEmail(), institute.getProgramName(), institute.getAgeGroup(), institute.getProgramCapacity(),
-					institute.getWaitlistingAllowed(), institute.getWaitlistCapacity());
+					institute.getWaitlistingAllowed(), institute.getWaitlistCapacity(), institute.getUserId());
 			
 			instituteRepo.save(_institute);
 			

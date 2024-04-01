@@ -71,8 +71,12 @@ public class RequestController {
 		try {
 			Request _request = requestRepositroy.save(
 					new Request(request.getParentId(), 
+						request.getParentName(),
 						request.getInstituteId(),
+						request.getInstituteName(),
+						request.getProgramName(),
 						request.getChildId(), 
+						request.getChildName(),
 						request.getAgeGroup(), 
 						request.getType(), 
 						request.getStatus(),
@@ -91,8 +95,12 @@ public class RequestController {
 		if (requestData.isPresent()) {
 			Request _request = requestData.get();
 			_request.setParentId(request.getParentId());
+			_request.setParentName(request.getParentName());
 			_request.setInstituteId(request.getInstituteId());
+			_request.setInstituteName(request.getInstituteName());
+			_request.setProgramName(request.getProgramName());
 			_request.setChildId(request.getChildId());
+			_request.setChildName(request.getChildName());
 			_request.setAgeGroup(request.getAgeGroup());
 			_request.setType(request.getType());
 			_request.setStatus(request.getStatus());

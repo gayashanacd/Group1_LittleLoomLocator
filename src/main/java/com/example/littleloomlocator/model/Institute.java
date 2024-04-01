@@ -64,6 +64,9 @@ public class Institute {
 	
 	@Column(name = "waitlistCapacity")
 	private int waitlistCapacity;
+	
+	@Column(name="userId")
+	private long userId;
 
 	public Institute() {
 		super();
@@ -72,7 +75,7 @@ public class Institute {
 	public Institute(String name, String unitNumber, String buildingNumber, String street, String city, String province,
 			String postalCode, String contactName, String contactPhone, String webSite, String email, 
 			String programName, ChildAgeGroup ageGroup, int programCapacity, String waitlistingAllowed,
-			int waitlistCapacity) {
+			int waitlistCapacity, long userId) {
 		super();
 		this.name = name;
 		this.unitNumber = unitNumber;
@@ -90,6 +93,15 @@ public class Institute {
 		this.programCapacity = programCapacity;
 		this.waitlistingAllowed = waitlistingAllowed;
 		this.waitlistCapacity = waitlistCapacity;
+		this.userId = userId;
+	}
+
+	public long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(long userId) {
+		this.userId = userId;
 	}
 
 	public long getId() {

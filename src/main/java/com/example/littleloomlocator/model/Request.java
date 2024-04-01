@@ -23,11 +23,23 @@ public class Request {
 	@Column(name = "parentId")
 	private long parentId;
 	
+	@Column(name = "parentName")
+	private String parentName;
+	
 	@Column(name = "instituteId")
 	private long instituteId;
 	
+	@Column(name = "instituteName")
+	private String instituteName;
+	
+	@Column(name = "programName")
+	private String programName;
+	
 	@Column(name = "childId")
 	private long childId;
+	
+	@Column(name = "childName")
+	private String childName;
 	
 	@Column(name = "ageGroup")
 	private ChildAgeGroup ageGroup;
@@ -38,6 +50,30 @@ public class Request {
 	@Column(name = "status")
 	private RequestStatus status;
 	
+	public String getParentName() {
+		return parentName;
+	}
+
+	public void setParentName(String parentName) {
+		this.parentName = parentName;
+	}
+
+	public String getInstituteName() {
+		return instituteName;
+	}
+
+	public void setInstituteName(String instituteName) {
+		this.instituteName = instituteName;
+	}
+
+	public String getChildName() {
+		return childName;
+	}
+
+	public void setChildName(String childName) {
+		this.childName = childName;
+	}
+
 	@Column(name = "createdDateTime")
 	private LocalDateTime createdDateTime;
 	
@@ -46,15 +82,36 @@ public class Request {
 	
 	public Request() {}
 	
-	public Request(long parentId, long instituteId, long childId, ChildAgeGroup ageGroup, RegistrationType type, RequestStatus status, String message) {
+	public Request(long parentId, String parentName, long instituteId, String instituteName, String programName, long childId, String childName, 
+			ChildAgeGroup ageGroup, RegistrationType type, RequestStatus status, String message) {
 		this.parentId = parentId;
+		this.parentName = parentName;
 		this.instituteId = instituteId;
+		this.instituteName = instituteName;
+		this.programName = programName;
 		this.childId = childId;
+		this.childName = childName;
 		this.ageGroup = ageGroup;
 		this.type = type;
 		this.status = status;
 		this.createdDateTime = LocalDateTime.now();
 		this.message = message;
+	}
+
+	public String getProgramName() {
+		return programName;
+	}
+
+	public void setProgramName(String programName) {
+		this.programName = programName;
+	}
+
+	public LocalDateTime getCreatedDateTime() {
+		return createdDateTime;
+	}
+
+	public void setCreatedDateTime(LocalDateTime createdDateTime) {
+		this.createdDateTime = createdDateTime;
 	}
 
 	public String getMessage() {

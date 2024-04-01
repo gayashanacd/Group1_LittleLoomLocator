@@ -67,15 +67,15 @@ public class Group1LittleLoomLocatorApplication {
 		// Adding Institutes
 		instituteRepo.save(new Institute("Riverside Childcare NW", "140-1110", "" ,"Ewen Ave", "New Westminster", "BC",
 				"V3M 5E4", "Paul Barby", "604-354-1180", "https://riversidechildcare.ca/",
-				"riversideccnw@gmail.com", "Infant", ChildAgeGroup.valueOf("UNDER_36_MONTHS"), 20, "Yes", 5));
+				"riversideccnw@gmail.com", "Infant", ChildAgeGroup.valueOf("UNDER_36_MONTHS"), 20, "Yes", 5, 3));
 		
 		instituteRepo.save(new Institute("Nana Licensed Daycare", "518 E", "" ,"59th Ave", "Vancouver", "BC",
 				"V5X 1Y3", "Nana Wilson", "604-367-5728", "https://nana-licensed-daycare.business.site/",
-				"nanadaycare@gmail.com", "Preschool", ChildAgeGroup.valueOf("BETWEEN_3_5_YEARS"), 50, "Yes", 10));
+				"nanadaycare@gmail.com", "Preschool", ChildAgeGroup.valueOf("BETWEEN_3_5_YEARS"), 50, "Yes", 10, 3));
 		
 		instituteRepo.save(new Institute("Sing & Smile Child Care", "12057", "" ,"82 Ave", "Surrey", "BC",
 				"V3W 3E1", "Karen Beach", "778-591-5999", "http://www.singandsmilechildcare.com/",
-				"singandsmile@gmail.com", "Preschool", ChildAgeGroup.valueOf("BETWEEN_3_5_YEARS"), 30, "No", 0));
+				"singandsmile@gmail.com", "Preschool", ChildAgeGroup.valueOf("BETWEEN_3_5_YEARS"), 30, "No", 0, 4));
 		
 		// Adding users 
 		ArrayList<User> users = new ArrayList<>();
@@ -92,9 +92,12 @@ public class Group1LittleLoomLocatorApplication {
 		
 		// Adding requests
 		ArrayList<Request> requests = new ArrayList<>();
-		requests.add(new Request(1, 1, 1, ChildAgeGroup.valueOf("UNDER_36_MONTHS"), RegistrationType.valueOf("ENROLMENT"), RequestStatus.valueOf("PENDING"), "Test message 1"));
-		requests.add(new Request(2, 2, 1, ChildAgeGroup.valueOf("BETWEEN_3_5_YEARS"), RegistrationType.valueOf("ENROLMENT"), RequestStatus.valueOf("PENDING"), "Test message 2"));
-		requests.add(new Request(3, 2, 1, ChildAgeGroup.valueOf("BETWEEN_3_5_YEARS"), RegistrationType.valueOf("WAITLIST"), RequestStatus.valueOf("PENDING"), "Test message 3"));
+		requests.add(new Request(1, "parent", 1, "Riverside Childcare NW", "Infant", 1, "Child1 FN", ChildAgeGroup.valueOf("UNDER_36_MONTHS"), 
+				RegistrationType.valueOf("ENROLMENT"), RequestStatus.valueOf("PENDING"), "Test message 1"));
+		requests.add(new Request(2, "parent2", 2, "Nana Licensed Daycare", "Preschool", 2, "Child2 FN", ChildAgeGroup.valueOf("BETWEEN_3_5_YEARS"), 
+				RegistrationType.valueOf("ENROLMENT"), RequestStatus.valueOf("PENDING"), "Test message 2"));
+		requests.add(new Request(1, "parent", 3, "Sing & Smile Child Care", "Infant", 1, "Child1 FN", ChildAgeGroup.valueOf("BETWEEN_3_5_YEARS"), 
+				RegistrationType.valueOf("WAITLIST"), RequestStatus.valueOf("PENDING"), "Test message 3"));
 		requestRepositroy. saveAll(requests);
 	}
 }
