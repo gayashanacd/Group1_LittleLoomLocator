@@ -55,9 +55,9 @@ public class Group1LittleLoomLocatorApplication {
 		
 		// create parents 
 		ArrayList<Parent> parents = new ArrayList<>();
-		parents.add(new Parent("Sujeewa", "Fernando", "1200", "320", "Sherbrooke Street", "New Westminster", "BC", "V3L3M6", "6726678180", "sujeewau@hotmail.com", "Sujeewa", "6726678180", 1));
-		parents.add(new Parent("Namesh", "Chathura", "1201", "321", "Street1", "New Westminster", "BC", "V3L3M6", "2369963996", "nameshm89@gmail.com", "Namesh", "2369963996", 2));
-		parents.add(new Parent("Indika", "Gayashan", "1202", "322", "Street2", "New Westminster", "BC", "V3L3M6", "7788825994", "gayazhanmit@yahoo.com", "Indika", "7788825994", 3));
+		parents.add(new Parent("Sujeewa", "Fernando", "1200", "320", "Sherbrooke Street", "New Westminster", "BC", "V3L3M6", "6726678180", "sujeewau@hotmail.com", "Sujeewa", "6726678180", 2));
+		parents.add(new Parent("Namesh", "Chathura", "1201", "321", "Street1", "New Westminster", "BC", "V3L3M6", "2369963996", "nameshm89@gmail.com", "Namesh", "2369963996", 4));
+		parents.add(new Parent("Indika", "Gayashan", "1202", "322", "Street2", "New Westminster", "BC", "V3L3M6", "7788825994", "gayazhanmit@yahoo.com", "Indika", "7788825994", 1));
 		
 		// add children to parents
 		parents.get(0).addChild(new Child("Child1 FN", "Child 1 LN",'F',LocalDate.of(2020, 2, 16), "No"));
