@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.littleloomlocator.model.*;
 import com.example.littleloomlocator.util.RegistrationType;
+import com.example.littleloomlocator.util.RequestStatus;
 
 @CrossOrigin(origins = "http://localhost:8081")
 @RestController
@@ -31,10 +32,11 @@ public class RequestController {
 	
 	// To get all requests, supporting search with parentId, instituteId, type
 	@GetMapping("/requests")
-	public ResponseEntity<List<Request>> getAllRequests(@RequestParam(required = false) Long parentId, @RequestParam(required = false) Long instituteId, @RequestParam(required = false) RegistrationType type) {	
+	public ResponseEntity<List<Request>> getAllRequests(@RequestParam(required = false) Long parentId, @RequestParam(required = false) Long instituteId, 
+			@RequestParam(required = false) RegistrationType type, @RequestParam(required = false) RequestStatus status, @RequestParam(required = false) String parentName) {	
 		try {
 			List<Request> requests = new ArrayList<Request>();
-			if (parentId == null && instituteId == null && type == null) {
+			if (parentId == null && instituteId == null && type == null && parentName == null && status == null) {
 				requestRepositroy.findAll().forEach(requests::add);
 			} else if (parentId != null && instituteId != null && type != null) {
 				requestRepositroy.findByParentIdAndInstituteIdAndType(parentId, instituteId, type).forEach(requests::add);
@@ -46,6 +48,10 @@ public class RequestController {
 				requestRepositroy.findByInstituteId(instituteId).forEach(requests::add);
 			} else if (parentId != null && instituteId == null && type == null) {
 				requestRepositroy.findByParentId(parentId).forEach(requests::add);
+			} else if (status != null) {
+				requestRepositroy.findByStatus(status).forEach(requests::add);
+			} else if (parentName != null) {
+				requestRepositroy.findByParentName(parentName).forEach(requests::add);
 			} 
 			return new ResponseEntity<>(requests, HttpStatus.OK);
 
