@@ -1,6 +1,7 @@
 package com.example.littleloomlocator.model;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -19,5 +20,5 @@ public interface ParentRepository extends JpaRepository<Parent, Long> {
 	
 	List<Parent> findByEmail(String email);
 	
-	List<Parent> findByUserId(long userId);
+	Optional<Parent> findByUserId(long userId);
 }

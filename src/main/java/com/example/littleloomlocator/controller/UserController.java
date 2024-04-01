@@ -28,6 +28,9 @@ public class UserController {
 	@Autowired
 	UserRepository userRepository;
 	
+	@Autowired
+	ParentRepository parentRepository;
+	
 	// To get all users
 	@GetMapping("/users")
 	public ResponseEntity<List<User>> getAllUsers() {
@@ -40,6 +43,7 @@ public class UserController {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
 	
 	// To get an user by username
 	@GetMapping("/users/by_username")
@@ -58,6 +62,16 @@ public class UserController {
 		Optional<User> userData = userRepository.findById(id);
 		if (userData.isPresent()) {
 			return new ResponseEntity<>(userData.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@GetMapping("/users/{id}/parent")
+	public ResponseEntity<Parent> getUserParentById(@PathVariable("id") long id) {
+		Optional<Parent> parentData = parentRepository.findByUserId(id);
+		if (parentData.isPresent()) {
+			return new ResponseEntity<>(parentData.get(), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
