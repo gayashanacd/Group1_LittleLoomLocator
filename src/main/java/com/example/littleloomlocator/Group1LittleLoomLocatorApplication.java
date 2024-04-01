@@ -62,6 +62,7 @@ public class Group1LittleLoomLocatorApplication {
 		// add children to parents
 		parents.get(0).addChild(new Child("Child1 FN", "Child 1 LN",'F',LocalDate.of(2020, 2, 16), "No"));
 		parents.get(1).addChild(new Child("Child2 FN", "Child 2 LN",'F',LocalDate.of(2015, 6, 20), "No"));
+		parents.get(1).addChild(new Child("Child3 FN", "Child 3 LN",'F',LocalDate.of(2018, 9, 10), "No"));
 		parentRepository.saveAll(parents);
 		
 		// Adding Institutes

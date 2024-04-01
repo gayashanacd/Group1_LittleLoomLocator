@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.littleloomlocator.model.Child;
 import com.example.littleloomlocator.model.Parent;
 import com.example.littleloomlocator.model.ParentRepository;
 
@@ -63,6 +64,27 @@ public class ParentController {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+
+	@GetMapping("/parents/{id}/children")
+	public ResponseEntity<List<Child>> getParentChildren(@PathVariable("id") long id) {
+
+		try {
+			List<Child> children = new ArrayList<Child>();
+			Optional<Parent> parentData = parentRepository.findById(id);
+
+			if (parentData.isPresent()) {
+				parentData.get().getChildren().forEach(children::add);
+			} else {
+				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			}
+			
+			return new ResponseEntity<>(children, HttpStatus.OK);
+
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
 	
 	@PostMapping("/parents")
 	public ResponseEntity<Parent> createParent(@RequestBody Parent parent) {
