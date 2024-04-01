@@ -65,6 +65,7 @@ public class ParentController {
 		}
 	}
 
+	//Get the children of a parent
 	@GetMapping("/parents/{id}/children")
 	public ResponseEntity<List<Child>> getParentChildren(@PathVariable("id") long id) {
 
