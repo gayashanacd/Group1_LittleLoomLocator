@@ -1,5 +1,7 @@
 package com.example.littleloomlocator.model;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -33,6 +35,9 @@ public class Notification {
 	@Column(name = "status")
 	private boolean isRead;
 
+	@Column(name = "createdDateTime")
+	private LocalDateTime createdDateTime;
+	
 	public Notification() {
 
 	}
@@ -45,7 +50,15 @@ public class Notification {
 		this.receiveName = receiveName;
 		this.message = message;
 		this.isRead = isRead;
+		this.createdDateTime = LocalDateTime.now();
+	}
 
+	public LocalDateTime getCreatedDateTime() {
+		return createdDateTime;
+	}
+
+	public void setCreatedDateTime(LocalDateTime createdDateTime) {
+		this.createdDateTime = createdDateTime;
 	}
 
 	public long getId() {
@@ -76,16 +89,16 @@ public class Notification {
 		return message;
 	}
 
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
 	public boolean isRead() {
 		return isRead;
 	}
 
 	public void setRead(boolean isRead) {
 		this.isRead = isRead;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
 	public String getSenderName() {

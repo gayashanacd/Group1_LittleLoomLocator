@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -66,15 +67,35 @@ public class NotificationController {
 	public ResponseEntity<Notification> patchNotification(@PathVariable("id") long id,
 			@RequestBody Notification notification) {
 		Optional<Notification> notificationData = notificationRepository.findById(id);
-
 		if (notificationData.isPresent()) {
 			Notification _notification = notificationData.get();
-			_notification.setMessage("Your application is accepted");
-
+			_notification.setRead(notification.isRead());
+			_notification.setMessage(notification.getMessage());
+			_notification.setSenderId(notification.getSenderId());
+			_notification.setSenderName(notification.getSenderName());
+			_notification.setReceiverId(notification.getReceiverId());
+			_notification.setReceiveName(notification.getReceiveName());
 			return new ResponseEntity<>(notificationRepository.save(_notification), HttpStatus.OK);
-
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
+	
+//	@PutMapping("/notifications/{id}")
+//	public ResponseEntity<Request> updateNotification(@PathVariable("id") long id, @RequestBody Notification notification) {
+//		Optional<Notification> notificationData = notificationRepository.findById(id);
+//		if (notificationData.isPresent()) {
+//			Notification _notification = notificationData.get();
+//			_notification.setRead(notification.isRead());
+//			_notification.setMessage(notification.getMessage());
+//			_notification.setSenderId(notification.getSenderId());
+//			_notification.setSenderName(notification.getSenderName());
+//			_notification.setReceiverId(notification.getReceiverId());
+//			_notification.setReceiveName(notification.getReceiveName());
+//			
+//			return new ResponseEntity<>(notificationRepository.save(_notification), HttpStatus.OK);
+//		} else {
+//			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//		}
+//	}
 }

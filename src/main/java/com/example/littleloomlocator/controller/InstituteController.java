@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.littleloomlocator.model.Institute;
 import com.example.littleloomlocator.model.InstituteRepository;
+import com.example.littleloomlocator.model.Parent;
 import com.example.littleloomlocator.util.ChildAgeGroup;
 
 @CrossOrigin(origins = "http://localhost:8081")
@@ -81,6 +82,7 @@ public class InstituteController {
 				institute2.setWaitlistingAllowed(institute.getWaitlistingAllowed());
 				institute2.setWaitlistCapacity(institute.getWaitlistCapacity());
 				institute2.setUserId(institute.getUserId());
+				institute2.setProgramRemainingSlots(institute.getProgramRemainingSlots());
 				instituteRepo.save(institute2);
 				return new ResponseEntity<>(institute2, HttpStatus.OK);
 			}
@@ -98,7 +100,7 @@ public class InstituteController {
 			Institute _institute = new Institute(institute.getName(), institute.getUnitNumber(), institute.getBuildingNumber(), institute.getStreet(), institute.getCity(), institute.getProvince(),
 					institute.getPostalCode(), institute.getContactName(), institute.getContactPhone(), institute.getWebSite(),
 					institute.getEmail(), institute.getProgramName(), institute.getAgeGroup(), institute.getProgramCapacity(),
-					institute.getWaitlistingAllowed(), institute.getWaitlistCapacity(), institute.getUserId());
+					institute.getWaitlistingAllowed(), institute.getWaitlistCapacity(), institute.getUserId(), institute.getProgramRemainingSlots());
 			
 			instituteRepo.save(_institute);
 			
@@ -122,6 +124,17 @@ public class InstituteController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	// To get institute by user id
+	@GetMapping("/institutes/by_userid/{id}")
+	public ResponseEntity<Institute> getInstituteByUserId(@PathVariable("id") Long userId) {
+		Optional<Institute> instituteData = instituteRepo.findByUserId(userId);
+		if (instituteData.isPresent()) {
+			return new ResponseEntity<>(instituteData.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
 	

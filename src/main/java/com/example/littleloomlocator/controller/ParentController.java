@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.littleloomlocator.model.Child;
 import com.example.littleloomlocator.model.Parent;
 import com.example.littleloomlocator.model.ParentRepository;
+import com.example.littleloomlocator.model.User;
 
 @CrossOrigin(origins = "http://localhost:8081")
 @RestController
@@ -41,6 +42,16 @@ public class ParentController {
 		}
 	}
 	
+	@GetMapping("/parents/by_userid/{id}")
+	public ResponseEntity<Parent> getParentByUserId(@PathVariable("id") Long userId) {
+		Optional<Parent> parentData = parentRepository.findByUserId(userId);
+		if (parentData.isPresent()) {
+			return new ResponseEntity<>(parentData.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+		
 	@GetMapping("/parents")
 	public ResponseEntity<List<Parent>> getAllParents(@RequestParam(required = false) String firstName,
 			@RequestParam(required = false) String lastName) {

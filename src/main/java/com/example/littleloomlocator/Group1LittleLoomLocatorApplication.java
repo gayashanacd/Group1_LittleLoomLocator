@@ -68,27 +68,27 @@ public class Group1LittleLoomLocatorApplication {
 		// Adding Institutes
 		instituteRepo.save(new Institute("Riverside Childcare NW", "140-1110", "" ,"Ewen Ave", "New Westminster", "BC",
 				"V3M 5E4", "Paul Barby", "604-354-1180", "https://riversidechildcare.ca/",
-				"riversideccnw@gmail.com", "Infant", ChildAgeGroup.valueOf("UNDER_36_MONTHS"), 20, "Yes", 5, 3));
+				"riversideccnw@gmail.com", "Infant", ChildAgeGroup.valueOf("UNDER_36_MONTHS"), 20, "Yes", 5, 3, 20));
 		
 		instituteRepo.save(new Institute("Nana Licensed Daycare", "518 E", "" ,"59th Ave", "Vancouver", "BC",
 				"V5X 1Y3", "Nana Wilson", "604-367-5728", "https://nana-licensed-daycare.business.site/",
-				"nanadaycare@gmail.com", "Preschool", ChildAgeGroup.valueOf("BETWEEN_3_5_YEARS"), 50, "Yes", 10, 3));
+				"nanadaycare@gmail.com", "Preschool", ChildAgeGroup.valueOf("BETWEEN_3_5_YEARS"), 50, "Yes", 10, 3, 50));
 		
 		instituteRepo.save(new Institute("Sing & Smile Child Care", "12057", "" ,"82 Ave", "Surrey", "BC",
 				"V3W 3E1", "Karen Beach", "778-591-5999", "http://www.singandsmilechildcare.com/",
-				"singandsmile@gmail.com", "Preschool", ChildAgeGroup.valueOf("BETWEEN_3_5_YEARS"), 30, "No", 0, 4));
+				"singandsmile@gmail.com", "Preschool", ChildAgeGroup.valueOf("BETWEEN_3_5_YEARS"), 30, "No", 0, 4, 30));
 		
 		// Adding users 
 		ArrayList<User> users = new ArrayList<>();
 		users.add(new User("admin", "admin", UserType.valueOf("ADMIN")));
 		users.add(new User("parent", "parent", UserType.valueOf("PARENT")));
-		users.add(new User("institute", "institute", UserType.valueOf("INSTITUTE")));
 		users.add(new User("parent2", "parent2", UserType.valueOf("PARENT")));
+		users.add(new User("institute", "institute", UserType.valueOf("INSTITUTE")));
 		userRepository.saveAll(users);
 		
 		// Adding notifications
-		notificationRepository.save(new Notification(3, "Sing & Smile Child Care", 2, "Sujeewa", "Your application is accepted.", false));
-		notificationRepository.save(new Notification(5, "Nana Licensed Daycare", 4, "Namesh", "Your application is still in waitlist. We will share an update once you receive a seat.", false));
+		notificationRepository.save(new Notification(3, "Sing & Smile Child Care", 2, "Sujeewa", "Your application is accepted. Please contact the institute for more details.", false));
+		notificationRepository.save(new Notification(5, "Nana Licensed Daycare", 3, "Namesh", "Your application is still in waitlist. We will share an update once you receive a seat.", false));
 		notificationRepository.save(new Notification(6, "Riverside Childcare NW", 2, "Sujeewa", "We are in the process of accomodating seats for the requested children.", false));
 		
 		// Adding requests

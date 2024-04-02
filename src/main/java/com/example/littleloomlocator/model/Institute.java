@@ -55,9 +55,12 @@ public class Institute {
 	
 	@Column(name = "ageGroup")
 	private ChildAgeGroup ageGroup;
-	
+
 	@Column(name = "programCapacity")
 	private int programCapacity;
+	
+	@Column(name = "programRemainingSlots")
+	private int programRemainingSlots;
 	
 	@Column(name = "waitlistingAllowed")
 	private String waitlistingAllowed;
@@ -75,7 +78,7 @@ public class Institute {
 	public Institute(String name, String unitNumber, String buildingNumber, String street, String city, String province,
 			String postalCode, String contactName, String contactPhone, String webSite, String email, 
 			String programName, ChildAgeGroup ageGroup, int programCapacity, String waitlistingAllowed,
-			int waitlistCapacity, long userId) {
+			int waitlistCapacity, long userId, int programRemainingSlots) {
 		super();
 		this.name = name;
 		this.unitNumber = unitNumber;
@@ -94,6 +97,7 @@ public class Institute {
 		this.waitlistingAllowed = waitlistingAllowed;
 		this.waitlistCapacity = waitlistCapacity;
 		this.userId = userId;
+		this.programRemainingSlots = programRemainingSlots;
 	}
 
 	public long getUserId() {
@@ -119,7 +123,15 @@ public class Institute {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public int getProgramRemainingSlots() {
+		return programRemainingSlots;
+	}
 
+	public void setProgramRemainingSlots(int programRemainingSlots) {
+		this.programRemainingSlots = programRemainingSlots;
+	}
+	
 	public String getUnitNumber() {
 		return unitNumber;
 	}
