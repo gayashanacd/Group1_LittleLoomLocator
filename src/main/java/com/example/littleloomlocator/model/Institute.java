@@ -100,14 +100,6 @@ public class Institute {
 		this.programRemainingSlots = programRemainingSlots;
 	}
 
-	public long getUserId() {
-		return userId;
-	}
-
-	public void setUserId(long userId) {
-		this.userId = userId;
-	}
-
 	public long getId() {
 		return id;
 	}
@@ -123,15 +115,7 @@ public class Institute {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public int getProgramRemainingSlots() {
-		return programRemainingSlots;
-	}
 
-	public void setProgramRemainingSlots(int programRemainingSlots) {
-		this.programRemainingSlots = programRemainingSlots;
-	}
-	
 	public String getUnitNumber() {
 		return unitNumber;
 	}
@@ -236,6 +220,14 @@ public class Institute {
 		this.programCapacity = programCapacity;
 	}
 
+	public int getProgramRemainingSlots() {
+		return programRemainingSlots;
+	}
+
+	public void setProgramRemainingSlots(int programRemainingSlots) {
+		this.programRemainingSlots = programRemainingSlots;
+	}
+
 	public String getWaitlistingAllowed() {
 		return waitlistingAllowed;
 	}
@@ -250,6 +242,14 @@ public class Institute {
 
 	public void setWaitlistCapacity(int waitlistCapacity) {
 		this.waitlistCapacity = waitlistCapacity;
+	}
+
+	public long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(long userId) {
+		this.userId = userId;
 	}
 	
 }
