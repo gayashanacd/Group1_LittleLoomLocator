@@ -31,6 +31,9 @@ public class UserController {
 	@Autowired
 	ParentRepository parentRepository;
 	
+	@Autowired
+	InstituteRepository instituteRepository;
+	
 	// To get all users
 	@GetMapping("/users")
 	public ResponseEntity<List<User>> getAllUsers() {
@@ -72,6 +75,16 @@ public class UserController {
 		Optional<Parent> parentData = parentRepository.findByUserId(id);
 		if (parentData.isPresent()) {
 			return new ResponseEntity<>(parentData.get(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@GetMapping("/users/{id}/institute")
+	public ResponseEntity<Institute> getUserInstituteById(@PathVariable("id") long id) {
+		Optional<Institute> instituteData = instituteRepository.findByUserId(id);
+		if (instituteData.isPresent()) {
+			return new ResponseEntity<>(instituteData.get(), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
